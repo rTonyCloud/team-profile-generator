@@ -59,7 +59,7 @@
           $("#name").text(
             "The force is not strong with this one. Your character was not found.");
           $("#stats").hide();
-        }
+        }cd //
       });
     });
 
