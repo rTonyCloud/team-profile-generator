@@ -6,7 +6,8 @@ jest.mock('../_test_/Employee.test.js')
 const engineer = new Engineer('tony', 1, 'tony@test.com', 'rtonycloud')
 
 test("Creates a new engineer object", () => {
-    expect(employee).toEqual(expect.any(object))
-    epect(engineer.github).toEqual(github)
-    expect(engineer.role).toBe(Engineer)
+    expect(Employee.name).toEqual(expect.any(String));
+    epect(engineer.github).toEqual(expect.any(String));
+    epect(engineer.email).toBe(expect.any(String));
+    expect(engineer.role).toBe(expect.any(String));
 });
