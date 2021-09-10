@@ -47,12 +47,12 @@ let generateHTML = (content) => {
       href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900,"/>
     <script src="https://kit.fontawesome.com/d831f70b1e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css" />
-    <title>Meet Our Team</title>
+    <title>Meet The Team</title>
   </head>
   <body>
     <header class="jumbotron"><div class='flex-row justify-content-center text-center' id="title"></header>
       <i class="far fa-address-book"></i>
-      <h1 class="text-center p-4 fw-bold">Meet The Rejects</h1>
+      <h1 class="text-center p-4 fw-bold">Meet The Team</h1>
       <div id="heroImg"></div>
     <article class="container main-wrapper min-vh-100">
       <div class="content-center p-6">
