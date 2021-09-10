@@ -5,7 +5,21 @@ const employee = new Employee('tony', 1, 'tony@test.com')
 
 test("Creates a new Employee object", () => {
     expect(employee).toEqual(expect.any(Object))
-    epect(employee.id).toEqual(epect.any(Number))
-    expect(employee.email).toEqual(expect.any(String));
-    expect(employee.role).toEqual(epect.any(String));
 });
+
+test("Creates a new Employee id", () => {
+    expect(employee.id).toEqual(expect.any(Number))
+});
+
+test("Creates a new Employee email", () =>{
+    expect(employee.email).toEqual(expect.any(String));
+});
+
+test("Creates a new Employee role", () => {
+    expect(employee.role).toEqual(expect.any(String));
+});
+
+
+module.exports = {
+    Employee
+};
