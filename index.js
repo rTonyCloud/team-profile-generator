@@ -103,26 +103,18 @@ const createManager = () => {
                 officeNumber,
                 email
             } = managerCreate;
-            const addManager = new Manager(name, id, officeNumber, email);
+            const addManager = new Manager(managerCreate.name, managerCreate.id, managerCreate.officeNumber, managerCreate.email);
 
             teamMembers.push(addManager);
             employeeCreate();
         });
-        
+
         const employeeCreate = () => {
 
                 inquirer.prompt([{
                         type: 'list',
-                        name: 'teammates',
-                        choices: ['Engineer', 'Intern', 'N/A'],
-                        validate: newMemberInput => {
-                            if (newMemberInput) {
-                                return true;
-                            } else {
-                                console.log('Please pick either Engineer, Intern or none.');
-                                return false;
-                            }
-                        }
+                        name: 'roles',
+                        choices: ['Engineer', 'Intern'],
                     },
                     {
                         type: 'input',
@@ -171,17 +163,10 @@ const createManager = () => {
                     },
                     {
                         type: 'input',
-                        name: 'Github',
+                        name: 'github',
                         message: "what is the Engineers' github? (Required):",
                         default: ['rtonycloud'],
-                        validate: engineerGithubInput => {
-                            if (engineerGithubInput) {
-                                return true;
-                            } else {
-                                console.log('Please pick either Engineer, Intern or none:');
-                                return false;
-                            }
-                        },
+                         when:(input) => input.roles === "Engineer",
 
                     },
                     {
@@ -189,7 +174,7 @@ const createManager = () => {
                         name: 'school',
                         message: "which school did the intern's attend? (Required):",
                         default: ['UM'],
-                        when: (input) => input.role === "Intern",
+                        when: (input) => input.roles === "Intern",
                     },
                     {
                         type: 'confirm',
