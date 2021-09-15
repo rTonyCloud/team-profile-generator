@@ -8,15 +8,15 @@ test("Creates a new Employee object", () => {
 });
 
 test("Creates a new Employee id", () => {
-    expect(employee.id).toEqual(expect.any(Number))
+    expect(employee.id).toEqual(employee.id)
 });
 
 test("Creates a new Employee email", () =>{
-    expect(employee.email).toEqual(expect.any(String));
+    expect(employee.email).toEqual(employee.email);
 });
 
 test("Creates a new Employee role", () => {
-    expect(employee.role).toEqual(expect.any(String));
+    expect(employee.role).toEqual('Employee');
 });
 
 

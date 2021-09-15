@@ -12,6 +12,7 @@ test("Creates a new engineer object", () => {
     test("Create a new engineer github", () => {
     expect(engineer.github).toEqual(employee);
 });
+
 test("Creates a new engineer email", () => {
     expect(engineer.email).toBe());
 });
