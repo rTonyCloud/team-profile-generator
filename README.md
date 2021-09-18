@@ -10,7 +10,11 @@
 * [Questions](#questions)
 
 ## Video Link
-https://drive.google.com/file/d/1X13wuqF0vhFkkTLjzRX2jTxY1TqP9nWJ/view
+
+
+https://user-images.githubusercontent.com/85594926/133911278-d637369b-c785-47ed-939b-1367e2fc3f4e.mp4
+
+
 
 ## Description 
 This application generates a team filled with a manager, engineers and interns. A command prompt asks you a few questions about your employees, roles, emails, github and etc.
