@@ -51,6 +51,20 @@ const createManager = () => {
             },
             {
                 type: 'input',
+                name: 'email',
+                message: "what is your email address? (Required):",
+                default: ['test@gmail.com'],
+                validate: emailInput => {
+                    if (emailInput) {
+                        return true;
+                    } else {
+                        console.log('!:');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'input',
                 name: 'officeNumber',
                 message: "what is the manager's office number? (Required):",
                 default: ['123'],
@@ -63,20 +77,6 @@ const createManager = () => {
                     }
                 }
             },
-            {
-                type: 'input',
-                name: 'email',
-                message: "what is your email address? (Required):",
-                default: ['test@gmail.com'],
-                validate: emailInput => {
-                    if (emailInput) {
-                        return true;
-                    } else {
-                        console.log('!:');
-                        return false;
-                    }
-                }
-            }
         ]).then((managerCreate) => {
             const {
                 name,
@@ -111,22 +111,6 @@ const createManager = () => {
                             }
                         },
                     },
-
-                    {
-                        type: 'input',
-                        name: 'email',
-                        message: "what is your email? (Required):",
-                        default: ['any@gmail.com'],
-                        validate: memberEmailInput => {
-                            if (memberEmailInput) {
-                                return true;
-                            } else {
-                                console.log('Please insert a valid email address!');
-                                return false;
-                            }
-                        },
-
-                    },
                     {
                         type: 'input',
                         name: 'id',
@@ -137,6 +121,21 @@ const createManager = () => {
                                 return true;
                             } else {
                                 console.log('Please provide a valid employee ID!');
+                                return false;
+                            }
+                        },
+
+                    },
+                    {
+                        type: 'input',
+                        name: 'email',
+                        message: "what is your email? (Required):",
+                        default: ['any@gmail.com'],
+                        validate: memberEmailInput => {
+                            if (memberEmailInput) {
+                                return true;
+                            } else {
+                                console.log('Please insert a valid email address!');
                                 return false;
                             }
                         },
@@ -174,9 +173,9 @@ const createManager = () => {
                         } = createEmployees;
                         let employee;
                         if (role === "Engineer") {
-                            employee = new Engineer(name, email, github, id);
+                            employee = new Engineer(name, id, email, github);
                         } else if (role === "Intern") {
-                            employee = new Intern(name, email, id, school);
+                            employee = new Intern(name, id, email, school);
                         }
                         teamMembers.push(employee);
                         if (confirmMoreMembers) {

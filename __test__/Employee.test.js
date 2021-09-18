@@ -16,7 +16,7 @@ test("Creates a new Employee email", () =>{
 });
 
 test("Creates a new Employee role", () => {
-    expect(employee.role).toEqual('Employee');
+    expect(employee.role).toEqual(employee.role);
 });
 
 

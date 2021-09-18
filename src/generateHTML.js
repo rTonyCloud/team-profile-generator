@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const Intern = require("../lib/Intern");
 const stylesheet = "./src/generateStyle.css";
 
 const contentCreate = (employees) => {
@@ -7,31 +8,31 @@ const contentCreate = (employees) => {
 
 
 
-  employees.forEach((Employee) => {
+  employees.forEach((employee) => {
     let icon =
-      Employee.getRole() == "Manager"
+      employee.getRole() == "Manager"
       ? `<i class="fas fa-user-tie"></i>`
-      : Employee.getRole() == "Engineer"
+      : employee.getRole() == "Engineer"
       ? `<i class= "fas fa-glasses"></i>`
       : `<i class="fas fa-graduation-cap"></i>`
 
 
 
-    let special = Employee.officeNumber
-    ? `Office Number: ${Employee.officeNumber}`
-    : Employee.github
-    ? `Github: <a href="https://github.com/${Employee.github}/">${Employee.github}</a>`
-    : `School: ${Employee.school}`;
+    let special = employee.officeNumber
+    ? `Office Number: ${employee.officeNumber}`
+    :  employee.github
+    ? `Github: <a href="https://github.com/${employee.github}/">${employee.github}</a>`
+    : `School: ${employee.school}`;
   
     finalHTML += `<div class="col">
       <div class="card rounded-lg">
-        <div class="card-body rounded-top bg-dark text-success">
-          <h5 class="card-title">${Employee.name}</h5>
-          <h5 class="card-title">${icon}${Employee.getRole()}</h5>
+        <div class="card-body rounded-top bg-light">
+          <h5 class="card-title">${employee.name}</h5>
+          <h5 class="card-title">${icon}${employee.getRole()}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${Employee.email}</li>
-          <li class="list-group-item">Email:${Employee.id}</li>
+          <li class="list-group-item">ID: ${employee.id}</li>
+          <li class="list-group-item">Email:${employee.email}</li>
           <li class="list-group-item">${special}</li>
         </ul>
       </div>
@@ -52,10 +53,6 @@ let generateHTML = (content) => {
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous" />
-      <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900,"/>
       <script src="https://kit.fontawesome.com/e58a7b52cf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css" />
     <title>Meet Our Team</title>
@@ -70,7 +67,7 @@ let generateHTML = (content) => {
       </div>
     </article>
   </body>
-  <footer class="bg-dark fw-bold text-center p-6">Made with ❤️ by Tony Rivera</footer>
+  <footer class="text-center p-6">Made with ❤️ by Tony Rivera</footer>
 </html>`;
   writeToFile("index.html", html);
   writeToFile("style.css", stylesheet);
